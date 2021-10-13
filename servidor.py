@@ -24,6 +24,7 @@ def login():
         for usuario in baselogin:
             if usuario["user"]==user and usuario["password"]==contrauser:
                 return redirect(url_for("user",usr=user))
+                #return render_template("usuario.html")
                 break            
         return render_template("registro.html")
     
@@ -52,9 +53,7 @@ def registro():
     if request.method=='POST':
         # Handle POST Request here
         return render_template('registro.html')
-        return render_template('statics/css/style.css')
-    return render_template('registro.html')
-    return render_template('statics/css/style.css')
+
 
 @app.route("/dashboardadmin",methods=['GET','POST'])
 def dashboardadmin():
@@ -83,8 +82,8 @@ def reultado_busquedas():
 @app.route('/perfiluser',methods=['GET','POST'])
 def perfil_user():
     if request.method=='POST':
-        return render_template('perfil_user.html')
-    return render_template('perfil_user.html')
+        return render_template('usuario.html')
+    return render_template('usuario.html')
 
 
 if __name__ == '__main__':
