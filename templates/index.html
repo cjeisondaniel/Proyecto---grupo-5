@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
     <link href="../statics/css/style.css" rel="stylesheet">
-    <title>Document</title>
+    <title>Index</title>
 </head>
 <body>
     <header>
@@ -32,9 +32,9 @@
             
             <div class="formulario" >
              <h2 onclick="agre()">INICIAR SESION</h2>
-             <form id ="form" method="post" action="">
-               <input type="text" style="width: 100% !important;" id = "usulog" placeholder="Usuario" required>
-               <input type="password" style="width: 100% !important;" id ="contralog" placeholder="Contraseña" required>
+             <form id ="form" method="POST" action="/login">
+               <input type="text" style="width: 100% !important;" id = "usulog" name ="usulog" placeholder="Usuario" required>
+               <input type="password" style="width: 100% !important;" id ="contralog" name ="contralog" placeholder="Contraseña" required>
                 <input type="submit" name ="iniciar" value="Iniciar Sesión" >
               </form>
              </div>
