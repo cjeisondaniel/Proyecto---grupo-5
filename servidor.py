@@ -1,3 +1,8 @@
+from flask import *  
+import sqlite3  
+  
+
+
 from flask import Flask,redirect,url_for,render_template,request
 
 app=Flask(__name__)
@@ -42,12 +47,20 @@ def ingresardatos():
     correo = request.form['contralog']
     telefono = request.form['contralog']
     password = request.form['contralog']
-        
-    #insert into usuario values (nombre,apellido,cedula,correo,telefono,passoword)
+            
+   """ with sqlite3.connect("employee.db") as con:  
+                cur = con.cursor()  
+                cur.execute("INSERT into Employees (nombre, apellido, cedula,correo,telefono,password) values (?,?,?)",(nombre,apellido,cedula,correo,telefono,password))  
+                con.commit()  
+                msg = "Employee successfully Added"  
+        except:  
+            con.rollback()  
+            msg = "We can not add the employee to the list"  
+        finally:  
+            return render_template(# usuario ingresado con éxito" "success.html",msg = msg)  
+            con.close()  
+    """
     
-    
-    
-
 @app.route('/registro',methods=['GET','POST'])
 def registro():
     if request.method=='POST':
