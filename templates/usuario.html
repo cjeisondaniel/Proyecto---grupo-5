@@ -32,17 +32,17 @@
             
             <div class="formulario_registro" >
 <h2>DATOS USUARIO</h2>
-             <form id ="form" method="post" action="">
-               <input type="text" style="width: 80% !important;" id = "nomcrear" placeholder="Nombres" required>
-               <input type="text" style="width: 80% !important;" id ="apellidocrear" placeholder="Apellidos" required>
-               <input type="text" style="width: 80% !important;" id ="correocrear" placeholder="Correo electrónico" required>
-               <input type="text" style="width: 80% !important;" id ="telefonocrear" placeholder="Perfil (Paciente/Medico)" required>
-               <input type="text" style="width: 80% !important;" id ="plancrear" placeholder="Tipo de Plan" required>
-               <input type="password" style="width: 80% !important;" id ="passwordcrear" placeholder="Cambiar Contraseña" required>
-               <input type="password" style="width: 80% !important;" id ="passwordconfirmar" placeholder="Confirma Contraseña" required>
-                <input type="submit" name ="actualizar" value="Actualizar contraseña" >
-                
-              </form>
+<table>
+    <tr>
+        <td>Nombres:  {{row["nombre"]}}</td>
+        <td>Apellidos: {{row["apellidos"]}} </td>
+        <td>Correo electrónico {{row["correoelctronico"]}}</td>
+        <td>Perfil(Paciente/Medico) {{row["perfil"]}}</td>
+        <td>tipo de afiliación {{row["tipofilia"]}}</td>
+        <td><button value="cambiar contraseña"></button></td>
+
+    </tr>
+</table>
              </div>
         </div>
 
