@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resutado de busqueda calificacion</title>
+    <link href="static\css\style.css" rel="stylesheet">
+
+</head>
+
+
+<body>
+    <header>
+        <div class="titulo">
+            <div class="nombretitulo">
+                <h1> CLÍNICA PARTENON</h1>
+            </div>
+            <div class="logo">
+                <img class="imglogo" src="img\imagen.png" >
+            </div>
+            <div class="fotousuario">
+                <img class="imgfoto" src="img\fotousuario.png">
+            </div>
+            <div>
+                <h4 class="texto_izquierda">Nombre del Paciente</h4>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div>
+            <h2 id="posicion_relativa" class="nombretitulo">Resultados de busqueda</h2>
+        </div>
+
+<!--<div id="pestanas">
+            <ul >
+                <li id="pestana1"><a href='javascript:cambiarPestanna(pestanas,pestana1);'>Solicitar</a></li>
+                <li id="pestana2"><a href='javascript:cambiarPestanna(pestanas,pestana2);'>Historico</a></li>
+            </ul>
+        </div>
+
+        <body onload="javascript:cambiarPestanna(pestanas,pestana1);">
+
+        <div id="contenidopestanas">
+            <div id="cpestana1">
+                Contenido de la pestaña 1
+            </div>
+            <div id="cpestana2">
+                Contenido de la pestaña 2
+            </div>
+    </div> -->
+
+        <div id="tamaño_formulario_capa1" class="contenedor-registro">
+            <div>
+                <div class="columna_izquierda">
+                    <select class="lista_despegable" name="Filtro Medico">
+                        <option value="0">Filtrar por Medico</option>
+                        <option value="1">Medico 1</option> 
+                        <option value="2">Medico 2</option> 
+                        <option value="3">Medico 3</option>
+                        <option value="4">Medico 4</option>
+                    </select>
+                </div>
+                <div class="columna_derecha">
+                    <select id="filtro" class="lista_despegable" name="Filtro Especialidad">
+                        <option value="0">Filtrar por Especialidad</option>
+                        <option value="1">Especialidad 1</option> 
+                        <option value="2">Especialidad 2</option> 
+                        <option value="3">Especialidad 3</option>
+                        <option value="4">Especialidad 4</option>
+                    </select>
+                </div>
+
+
+
+
+
+            <div id="tamaño_formulario_capa2" class="contenedor-registro">                
+                    <div id="tamaño_formulario_capa3" class="contenedor-registro">
+                        <div id="tamaño_formulario_capa4" class="contenedor-registro">
+                            <h4>Cita Medica 1</h4>
+                            <hr>
+                            <div id="borde" class="columna_izquierda">
+                                <h5 id="tabular_h5">Medico</h5>
+                                <h5 id="tabular_h5">Especialidad</h5>
+                                    
+                            </div>
+                            <div  class="columna_derecha">
+                                <h5>Nombre del Medico</h5>
+                                <h5>Nombre de la Especialidad</h5>
+                            </div>
+
+                        </div>
+                        <div id="tamaño_formulario_capa4_2" class="contenedor-registro">
+                            <form id ="form" method="post" action="">
+                                <input type="submit" name ="Calificar_Cita" value="Calificar Cita"  >
+                            </form>
+                        </div>
+                    </div> 
+
+                    <div id="tamaño_formulario_capa3" class="contenedor-registro">
+                        <div id="tamaño_formulario_capa4" class="contenedor-registro">
+                            <h4>Cita Medica 2</h4>
+                            <hr>
+                            <div id="borde" class="columna_izquierda">
+                                <h5 id="tabular_h5">Medico</h5>
+                                <h5 id="tabular_h5">Especialidad</h5>
+                                    
+                            </div>
+                            <div  class="columna_derecha">
+                                <h5>Nombre del Medico</h5>
+                                <h5>Nombre de la Especialidad</h5>
+                            </div>
+
+                        </div>
+                        <div id="tamaño_formulario_capa4_2" class="contenedor-registro">
+                            <form id ="form" method="post" action="">
+                                <input type="submit" name ="Calificar_Cita" value="Calificar Cita"  >
+                            </form>
+                        </div>
+                    </div>
+
+                    <div id="tamaño_formulario_capa3" class="contenedor-registro">
+                        <div id="tamaño_formulario_capa4" class="contenedor-registro">
+                            <h4>Cita Medica 3</h4>
+                            <hr>
+                            <div id="borde" class="columna_izquierda">
+                                <h5 id="tabular_h5">Medico</h5>
+                                <h5 id="tabular_h5">Especialidad</h5>
+                                    
+                            </div>
+                            <div  class="columna_derecha">
+                                <h5>Nombre del Medico</h5>
+                                <h5>Nombre de la Especialidad</h5>
+                            </div>
+
+                        </div>
+                        <div id="tamaño_formulario_capa4_2" class="contenedor-registro">
+                            <form id ="form" method="post" action="">
+                                <input type="submit" name ="Calificar_Cita" value="Calificar Cita" >
+                            </form>
+                        </div>
+                    </div>
+                
+                
+            </div>
+        </div>
+    </main>
+</body>
+</html>
