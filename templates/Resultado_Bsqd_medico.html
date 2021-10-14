@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resutado de busqueda</title>
+    <link href="static\css\style.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="titulo">
+            <div class="nombretitulo">
+                <h1> CLÍNICA PARTENON</h1>
+            </div>
+            <div class="logo">
+                <img class="imglogo" src="img\imagen.png" >
+            </div>
+            <div class="fotousuario">
+                <img class="imgfoto" src="img\fotousuario.png">
+            </div>
+            <div>
+                <h4 class="texto_izquierda">Nombre del Medico</h4>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div>
+            <h2 id="posicion_relativa" class="nombretitulo">Resultados de busqueda</h2>
+        </div>
+
+        <div id="tamaño_formulario_capa1" class="contenedor-registro">
+            <select class="lista_despegable" name="Nombre_paciente">
+                <option value="0">Filtrar por paciente</option>
+                <option value="1">Paciente 1</option> 
+                <option value="2">Paciente 2</option> 
+                <option value="3">Paciente 3</option>
+                <option value="4">Paciente 4</option>
+             </select>
+            <div id="tamaño_formulario_capa2" class="contenedor-registro">
+                
+                <div id="tamaño_formulario_capa3" class="contenedor-registro">
+                    <h4>Paciente 1</h4>
+                    <hr>
+                    <form id ="form" method="post" action="">
+                        <div class="columna_izquierda">
+                            <input type="submit" name ="Ver_historia_clinica" value="Ver historia clinica" >
+                            
+                        </div>
+                        <div class="columna_derecha">
+                            <input type="submit" name ="Ver_Calificacion" value="Ver calificacion" >
+                        </div>
+                    </form>
+                </div> 
+                
+                <div id="tamaño_formulario_capa3" class="contenedor-registro">
+                    <h4>Paciente 2</h4>
+                    <hr>
+                    <form id ="form" method="post" action="">
+                        <div class="columna_izquierda">
+                            <input type="submit" name ="Ver_historia_clinica" value="Ver historia clinica" >
+                            
+                        </div>
+                        <div class="columna_derecha">
+                            <input type="submit" name ="Ver_Calificacion" value="Ver calificacion" >
+                        </div>
+                    </form>
+                </div> 
+                
+                <div id="tamaño_formulario_capa3" class="contenedor-registro">
+                    <h4>Paciente 3</h4>
+                    <hr>
+                    <form id ="form" method="post" action="">
+                        <div class="columna_izquierda">
+                            <input type="submit" name ="Ver_historia_clinica" value="Ver historia clinica" >
+                            
+                        </div>
+                        <div class="columna_derecha">
+                            <input type="submit" name ="Ver_Calificacion" value="Ver calificacion" >
+                        </div>
+                    </form>
+                </div> 
+            </div>
+        </div>
+    </main>
+</body>
+</html>
