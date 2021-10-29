@@ -8,10 +8,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
-    <link href="../static/css/style.css" rel="stylesheet">
+    <link href="static\css\Usuario.css" rel="stylesheet">
     <title>Usuario</title>
 </head>
 <body>
+
     <header>
         <div class="titulo">
             <div class="nombretitulo">
@@ -21,36 +22,51 @@
                 <img src="{{url_for('static',filename='img/imagen.png')}}" class="imglogo">
             </div>
         </div>
-
     </header>
     
+
+
     <main>
-    <form id="form_usuario" action="/usuario" method="POST">
-        <div>
-           <img src="{{url_for('static',filename='img/fotousuario.png')}}" width="195" height="160" alt=""/>
-            &nbsp;</div>
-                <div class="contenedor-registro">
-                    
-                    <div class="formulario_registro" >
-        <h2>DATOS USUARIO</h2>
-        <table>
-            <tr>
-                <td name="nombre">Nombres:  {{nombre}}</td>
-                <td name="apellido">Apellidos: {{apellidos}} </td>
-                <td name="correoelctronico">Correo electrónico {{correoelctronico}}</td>
-                <td name="perfil">Perfil(Paciente/Medico) {{perfil}}</td>
-                <td><button value="cambiar contraseña"></button></td>
+        <div class="Contenedor_principal">
+            <div class="Contenedor_Superior">
+                <h2>DATOS USUARIO</h2>
+            </div>
 
-            </tr>
-        </table>
+            <div class="contenedor_inferior">
+                <form id="form_usuario" action="/usuario" method="POST">
+                    <div class="contenedor_izquierdo">
+                        <img src="{{url_for('static',filename='img/fotousuario.png')}}" width="195" height="160" alt=""/>
+                            &nbsp;
                     </div>
+                    
+                    <div class="contenedor_derecho">       
+                        
+                            <table>
+                                <tr>
+                                    <td name="nombre">Nombres:  {{nombre}}</td>
+                                    <td> <input type="text" style="width: 80% !important;" id = "nomcrear" name= "nombre"  required>{{nombre}} </td>
+                                </tr>
+                                <tr>
+                                    <td name="apellido">Apellidos: {{apellidos}} </td>
+                                    <td><input type="text" style="width: 80% !important;" id = "nomcrear" name= "nomcrear" placeholder="Nombres" required></td>
+                                </tr>                                    
+                                <tr>
+                                    <td name="correoelctronico">Correo electrónico: {{correoelctronico}}</td>
+                                    <td><input type="text" style="width: 80% !important;" id = "nomcrear" name= "nomcrear" placeholder="Nombres" required></td>
+                                </tr> 
+                                <tr>
+                                    <td name="perfil">Tipo de usuario: {{perfil}}</td>
+                                    <td><input type="text" style="width: 80% !important;" id = "nomcrear" name= "nomcrear" placeholder="Nombres" required></td>
+                                </tr>
+                                
+                            </table>                       
+                    </div>
+
+                </form>
+            </div>
         </div>
-
-    </form>
     </main>
-    <footer>
-
-    </footer>
+    
     
 </body>
 </html>

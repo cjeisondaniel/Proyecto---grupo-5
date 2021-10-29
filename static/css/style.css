@@ -253,13 +253,13 @@ select
 .contenedor-registro input[type="submit"]:hover
 {
 	background: #597694;
-	}
+}
 
-	.tabla_encabezado{
+.tabla_encabezado{
 		width: 100%;
 		border: 10px black;
 	
-	}
+}
 	
 	.fotosuario,
 	.imgfoto{
