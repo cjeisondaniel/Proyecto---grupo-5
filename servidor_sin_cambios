@@ -23,15 +23,22 @@ def home1():
 
 #Al iniciar el servidor reenvia a la página inicial de index
 
-@app.route('/usu',methods=['POST','GET'])
-def usua():         
-    return render_template("usuario.html")
-
 @app.route('/login',methods=['POST','GET'])
-def login():         
-    return render_template("registro.html")
+def login():
+    if request.method == 'POST':
+        user = request.form['usulog']
+        contrauser = request.form['contralog']
+        for usuario in baselogin:
+            if usuario["user"]==user and usuario["password"]==contrauser:
+                return redirect(url_for("user",usr=user))
+                #return render_template("usuario.html")
+                break            
+        return render_template("registro.html")
 #busca los datos de usuario y contraseña encontrados en la base de datos y los reenvía a la página de usuario o a la página de login en el caso que no los encuentre   
-          
+        
+@app.route("/<usr>")
+def user(usr):
+    return f"<h1{usr}</h1"    
     
 @app.route("/ingresardatos", methods=['POST','GET'])
 def ingresardatos():
