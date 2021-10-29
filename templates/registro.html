@@ -25,29 +25,28 @@
     </header>
     <main>
         <div class="contenedor-registro">
-            
+            <div class="toggle" onclick="agre();">
+                <a href="/"><samp>Regresar</samp></a>
+            </div>            
             <div class="formulario_registro" >
-             <h2>REGISTRARSE</h2>
-             <form id ="form" method="post" action="/ingresardatos">
-               <input type="text" style="width: 80% !important;" id = "nomcrear" name= "nomcrear" placeholder="Nombres" required>
-               <input type="text" style="width: 80% !important;" id ="apellidocrear" name= "apellidocrear" placeholder="Apellidos" required>
-               <input type="text" style="width: 80% !important;" id ="cedulacrear" name= "cedulacrear" placeholder="Cédula" required>
-               <input type="text" style="width: 80% !important;" id ="correocrear" name= "correocrear" placeholder="Correo electrónico" required>
-               <input type="text" style="width: 80% !important;" id ="telefonocrear" name= "telefonocrear" placeholder="Telefono" required>
-               <input type="password" style="width: 80% !important;" id ="passwordcrear" name= "passwordcrear" placeholder="Password" required>
-               
-                <input type="submit" name ="registrarse" value="Registrarse" >
+                <h2>REGISTRARSE</h2>
+                <form id ="form" method="post" action="/registro">
+
+                    <input type="text" style="width: 80% !important;" id = "nomcrear" name= "nomcrear" placeholder="Nombres" required>
+                    <input type="text" style="width: 80% !important;" id ="apellidocrear" name= "apellidocrear" placeholder="Apellidos" required>
+                    <input type="text" style="width: 80% !important;" id ="cedulacrear" name= "cedulacrear" placeholder="Cédula" required>
+                    <input type="text" style="width: 80% !important;" id ="correocrear" name= "correocrear" placeholder="Correo electrónico" required>
+                    <input type="text" style="width: 80% !important;" id ="telefonocrear" name= "telefonocrear" placeholder="Telefono" required>
+                    <input type="password" style="width: 80% !important;" id ="passwordcrear" name= "passwordcrear" placeholder="Password" required>
                 
-              </form>
+                    <input type="submit" name ="registrarse" value="Registrarse" id="btn_registro" >
+                    
+                </form>
              </div>
         </div>
-           
-
-
     </main>
-    <footer>
-
-    </footer>
     
 </body>
+<script src="static\js\script.js" type="module"> </script>
+
 </html>

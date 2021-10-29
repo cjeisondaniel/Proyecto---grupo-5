@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Bree+Serif&display=swap" rel="stylesheet">
     <link href="../static/css/style.css" rel="stylesheet">
-    <title>Index</title>
+    <title>Alerta</title>
 </head>
 <body>
     <header>
@@ -24,22 +24,19 @@
 
     </header>
     <main>
-        <div class="contenedor-form">
+        <div class="contenedor-form" id="cont">
 
-            <div class="toggle" onclick="agre();">
-                <a href="/registro"><samp>Crear Cuenta</samp></a>
+            <div class="toggle"  onclick="agre();">
+                <a href="/registro"><samp>regresar al registro</samp></a>
+                <hr width="1" size="5">
+                <a href="/"><samp>regresar al login</samp></a>
             </div>
             
-            <div class="formulario" >
-             <h2 onclick="agre()">INICIAR SESION</h2>
-             <form id ="form" method="POST" action="/login">
-               <input type="text" style="width: 100% !important;" id = "usulog" name ="usulog" placeholder="Usuario" required>
-               <input type="password" style="width: 100% !important;" id ="password" name ="password" placeholder="Contraseña" required>
-                <input type="submit" name ="iniciar" value="Iniciar Sesión" >
-              </form>
-             </div>
+            
+            <div class="formulario" width="60%">
+             <a onclick="agre()" name="mensaje_alerta">{{mensaje_alerta}}</a>
+            </div>
         </div>
-           
 
 
     </main>

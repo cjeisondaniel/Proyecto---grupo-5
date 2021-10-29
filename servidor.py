@@ -1,6 +1,9 @@
 from sqlite3.dbapi2 import Error
 from flask import *  
 import sqlite3  
+import hashlib
+from werkzeug.security import check_password_hash, generate_password_hash
+import re
   
 
 
@@ -22,6 +25,11 @@ baselogin= [
 def home1():
     return render_template("index.html")
 
+
+@app.route('/alerta')
+def alerta():
+    return render_template("alerta.html")
+
 #Al iniciar el servidor reenvia a la página inicial de index
 
 @app.route('/usuario',methods=['POST','GET'])
@@ -30,7 +38,7 @@ def usua():
         try:
             with sqlite3.connect("CentroMedico.db") as con:
                 Usuario = 1234
-                con.row_factory=sqlite3.Row #Hacer diccionario de lo que busco en la BD
+                con.row_factory=sqlite3.Row 
                 cur = con.cursor()
                 consulta=cur.execute("SELECT rol from Usuario where Cedula=?",[Usuario]).fetchone()
                 Rol=consulta[0]
@@ -57,34 +65,71 @@ def usua():
             
 
 @app.route('/login',methods=['POST','GET'])
-def login():         
+def login():
+    if request.method == 'POST':
+        user = escape(request.form['usulog'])
+        password = escape(request.form['password'])
+        try:
+            with sqlite3.connect("CentroMedico.db") as con:
+                cur = con.cursor()
+                consulta=cur.execute("SELECT Password FROM Usuario WHERE Cedula=?",[user]).fetchone()
+                if consulta!=None:
+                    if check_password_hash(consulta[0],password):
+                        session['user']=user
+                        return render_template("detallecitapaciente.html")
+                    else:
+                        flash("Credenciales incorrectas")
+                        return render_template("index.html")
+                else:
+                    flash("El usuario no existe")
+                    return redirect('/registro')
+        except Error:
+            flash("Algo salió mal: "+Error)
+            return redirect('/login')
+
+    if 'user' in session:
+        return redirect('/perfil')
+    else:
+        return render_template('login.html')
+    
+    
+    
+    
     return render_template("registro.html")
 #busca los datos de usuario y contraseña encontrados en la base de datos y los reenvía a la página de usuario o a la página de login en el caso que no los encuentre   
           
     
-@app.route("/ingresardatos", methods=['POST','GET'])
+@app.route("/registro", methods=['POST','GET'])
 def ingresardatos():
-    nombre = request.form['usulog']
-    apellido = request.form['contralog']
-    cedula = request.form['contralog']
-    correo = request.form['contralog']
-    telefono = request.form['contralog']
-    password = request.form['contralog']
+                
+    if request.method=='POST':
+        nombre = escape(request.form['nomcrear'])
+        apellido = escape(request.form['apellidocrear'])
+        cedula = escape(request.form['cedulacrear'])
+        correo = escape(request.form['correocrear'])
+        telefono = escape(request.form['telefonocrear'])
+        password = escape(request.form['passwordcrear'])
+        hash_clave=generate_password_hash(password)
+        rol="Paciente"
+        try:
+            with sqlite3.connect("CentroMedico.db") as con:
+                
+                con.row_factory=sqlite3.Row 
+                cur = con.cursor()
+                consulta=cur.execute("SELECT Cedula from Usuario where Cedula=?",[cedula]).fetchone()
+                if consulta[0] is None:
+                    cur.execute("Insert into Usuario (Rol,Cedula,Password) VALUES (?,?,?)",[rol,cedula,hash_clave])
+                    cur.execute("Insert into Paciente (Cedula,Nombre,Apellido,Correo,Telefono) VALUES (?,?,?,?,?)",[cedula,nombre,apellido,correo,telefono])
+                    con.commit()
+                else:
+                    return render_template("alerta.html",mensaje_alerta="usuario ya registrado")
+
+        except Error:    
+            return "No se realizó el registro"
+        
+    return render_template('registro.html')
             
-""" with sqlite3.connect("employee.db") as con:  
-                cur = con.cursor()  
-                cur.execute("INSERT into usuario (nombre, apellido, cedula,correo,telefono,password) values (?,?,?)",(nombre,apellido,cedula,correo,telefono,password))  
-                con.commit()  
-                msg = "Employee successfully Added"  
-        except:  
-            con.rollback()  
-            msg = "We can not add the employee to the list"  
-            return render_template("interfazusuario.html")
-        finally:  
-            return render_template(# usuario ingresado con éxito" "success.html",msg = msg)  
-            con.close()  
-"""
-#Ingresa los datos ingresados en el login a la tabla de la base de datos con el nombre de usuario    
+
     
 
 

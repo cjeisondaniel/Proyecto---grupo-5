@@ -40,6 +40,11 @@ body{
 .contenedor-form .toggle span
 { letter-spacing: 1px;
 }
+#cont{
+	height:160px;
+	width: 500px;
+}
+	
 .contenedor-form .toggle:hover 
 {
 	border-top:3px solid white;
