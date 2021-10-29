@@ -25,28 +25,28 @@
     </header>
     
     <main>
-    <div>
-    <img src="../img/fotousuario.png" width="195" height="160" alt=""/>
-    &nbsp;</div>
-           <div class="contenedor-registro">
-            
-            <div class="formulario_registro" >
-<h2>DATOS USUARIO</h2>
-<table>
-    <tr>
-        <td>Nombres:  {{row["nombre"]}}</td>
-        <td>Apellidos: {{row["apellidos"]}} </td>
-        <td>Correo electrónico {{row["correoelctronico"]}}</td>
-        <td>Perfil(Paciente/Medico) {{row["perfil"]}}</td>
-        <td>tipo de afiliación {{row["tipofilia"]}}</td>
-        <td><button value="cambiar contraseña"></button></td>
+    <form id="form_usuario" action="/usuario" method="POST">
+        <div>
+            <img src="../img/fotousuario.png" width="195" height="160" alt=""/>
+            &nbsp;</div>
+                <div class="contenedor-registro">
+                    
+                    <div class="formulario_registro" >
+        <h2>DATOS USUARIO</h2>
+        <table>
+            <tr>
+                <td name="nombre">Nombres:  {{nombre}}</td>
+                <td name="apellido">Apellidos: {{apellidos}} </td>
+                <td name="correoelctronico">Correo electrónico {{correoelctronico}}</td>
+                <td name="perfil">Perfil(Paciente/Medico) {{perfil}}</td>
+                <td><button value="cambiar contraseña"></button></td>
 
-    </tr>
-</table>
-             </div>
+            </tr>
+        </table>
+                    </div>
         </div>
 
-
+    </form>
     </main>
     <footer>
 

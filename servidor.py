@@ -1,3 +1,4 @@
+from sqlite3.dbapi2 import Error
 from flask import *  
 import sqlite3  
   
@@ -23,9 +24,37 @@ def home1():
 
 #Al iniciar el servidor reenvia a la página inicial de index
 
-@app.route('/usu',methods=['POST','GET'])
-def usua():         
-    return render_template("usuario.html")
+@app.route('/usuario',methods=['POST','GET'])
+def usua():
+     if request.method=='GET':
+        try:
+            with sqlite3.connect("CentroMedico.db") as con:
+                Usuario = 1234
+                con.row_factory=sqlite3.Row #Hacer diccionario de lo que busco en la BD
+                cur = con.cursor()
+                consulta=cur.execute("SELECT rol from Usuario where Cedula=?",[Usuario]).fetchone()
+                Rol=consulta[0]
+                
+                if Rol=="Paciente":             
+                    consulta2=cur.execute("Select Nombre, Apellido, Correo from Paciente Where cedula=?",[Usuario]).fetchone()
+                    Nombre=consulta2[0]
+                    Apellido=consulta2[1]
+                    Correo=consulta2[2]
+                    if consulta2 != None:
+                        return render_template("usuario.html",nombre=Nombre,apellidos=Apellido,correoelctronico=Correo,perfil=Rol)
+                
+                elif Rol=="Medico":
+                    consulta2=cur.execute("Select Nombre, Apellido, Correo from Medico Where cedula=?",[Usuario]).fetchone()
+                    Nombre=consulta2[0]
+                    Apellido=consulta2[1]
+                    Correo=consulta2[2]                                
+                    if consulta2 != None:
+                        return render_template("usuario.html",nombre=Nombre,apellidos=Apellido,correoelctronico=Correo,perfil=Rol)
+
+        except Error: 
+            return render_template("usuario.html")
+            
+            
 
 @app.route('/login',methods=['POST','GET'])
 def login():         
